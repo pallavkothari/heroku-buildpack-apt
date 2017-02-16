@@ -38,7 +38,7 @@ mkdir -p "$APT_STATE_DIR/lists/partial"
 if [ -f $1/AptGpgKeys ]; then
     topic "Adding apt-keys"
     for GPG_KEY in $(cat $BUILD_DIR/AptGpgKeys); do
-        curl $GPG_KEY | apt-key add -
+        curl $GPG_KEY | sudo apt-key add -
     done
 fi
 
