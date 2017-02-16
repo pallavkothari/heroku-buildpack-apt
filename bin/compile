@@ -37,8 +37,9 @@ mkdir -p "$APT_STATE_DIR/lists/partial"
 
 if [ -f $1/AptSourcesList ]; then
     topic "Adding apt sources"
+    ls -lh /etc/apt/sources.list.d/
     for SRC in $(cat $BUILD_DIR/AptSourcesList); do
-        echo $SRC | tee -a /etc/apt/sources.list.d/heroku-buildpack-apt.list
+        echo $SRC >> /etc/apt/sources.list.d/heroku-buildpack-apt.list
     done
 fi
 
